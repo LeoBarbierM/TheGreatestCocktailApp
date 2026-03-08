@@ -83,7 +83,7 @@ class DetailActivity : ComponentActivity() {
                 ) { innerPadding ->
                     Box(modifier = Modifier.fillMaxSize().padding(top = innerPadding.calculateTopPadding())) {
                         when (selected) {
-                            0 -> ALaUneScreen()
+                            0 -> RandomScreen()
                             1 -> {
                                 if (showingDetail) {
                                     if (isLoading) {

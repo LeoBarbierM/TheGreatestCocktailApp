@@ -37,17 +37,17 @@ fun FavoritesScreen(modifier: Modifier = Modifier) {
             containerColor = AppColors.Background,
             titleContentColor = AppColors.PrimaryText,
             textContentColor = AppColors.SecondaryText,
-            title = { Text("Vider les favoris", fontWeight = FontWeight.Bold) },
-            text = { Text("Êtes-vous sûr de vouloir supprimer tous vos cocktails favoris ? Cette action est irréversible.") },
+            title = { Text("Clear favorites", fontWeight = FontWeight.Bold) },
+            text = { Text("Are you sure you want to clear all your favorite cocktails? This action cannot be undone.") },
             confirmButton = {
                 TextButton(onClick = {
                     AppPreferences.clearFavorites()
                     showClearDialog = false
                     selectedCategory = null
-                }) { Text("Oui, vider", color = AppColors.Danger, fontWeight = FontWeight.Bold) }
+                }) { Text("Yes, clear", color = AppColors.Danger, fontWeight = FontWeight.Bold) }
             },
             dismissButton = {
-                TextButton(onClick = { showClearDialog = false }) { Text("Annuler", color = AppColors.PrimaryText) }
+                TextButton(onClick = { showClearDialog = false }) { Text("Cancel", color = AppColors.PrimaryText) }
             }
         )
     }
@@ -56,22 +56,22 @@ fun FavoritesScreen(modifier: Modifier = Modifier) {
         Row(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 if (selectedCategory != null) {
-                    IconButton(onClick = { selectedCategory = null }) { Icon(Icons.Default.ArrowBack, "Retour", tint = AppColors.PrimaryText) }
+                    IconButton(onClick = { selectedCategory = null }) { Icon(Icons.Default.ArrowBack, "Back", tint = AppColors.PrimaryText) }
                 }
                 if (favoriteCocktails.isNotEmpty()) {
-                    IconButton(onClick = { showClearDialog = true }) { Icon(Icons.Default.DeleteSweep, "Vider", tint = AppColors.Danger) }
+                    IconButton(onClick = { showClearDialog = true }) { Icon(Icons.Default.DeleteSweep, "Clear", tint = AppColors.Danger) }
                 }
                 Spacer(modifier = Modifier.width(4.dp))
-                Text(text = selectedCategory ?: "Mes Favoris", color = AppColors.PrimaryText, fontSize = if (selectedCategory == null) 28.sp else 24.sp, fontWeight = FontWeight.Bold)
+                Text(text = selectedCategory ?: "My Favorites", color = AppColors.PrimaryText, fontSize = if (selectedCategory == null) 28.sp else 24.sp, fontWeight = FontWeight.Bold)
             }
             IconButton(onClick = { AppPreferences.toggleGridMode() }) {
-                Icon(if (isGridMode) Icons.Default.ViewList else Icons.Default.GridView, "Changer", tint = AppColors.PrimaryText)
+                Icon(if (isGridMode) Icons.Default.ViewList else Icons.Default.GridView, "Change view", tint = AppColors.PrimaryText)
             }
         }
 
         if (favoriteCocktails.isEmpty()) {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text("Aucun cocktail en favori \uD83D\uDC94", color = AppColors.PrimaryText, fontSize = 16.sp)
+                Text("No favorite cocktails 💔", color = AppColors.PrimaryText, fontSize = 16.sp)
             }
         } else if (selectedCategory == null) {
             val categories = favoriteCocktails.mapNotNull { it.category }.distinct().sorted()

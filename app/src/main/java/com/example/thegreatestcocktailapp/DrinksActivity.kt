@@ -81,7 +81,7 @@ class DrinksActivity : ComponentActivity() {
                 ) { innerPadding ->
                     Box(modifier = Modifier.fillMaxSize().padding(top = innerPadding.calculateTopPadding())) {
                         when (selected) {
-                            0 -> ALaUneScreen()
+                            0 -> RandomScreen()
                             1 -> {
                                 if (showingDrinksDetail) DrinksListContent(categoryName = categoryName)
                                 else CategoriesScreen()
@@ -167,7 +167,7 @@ fun DrinkListItemCard(drink: DrinkModel, onClick: () -> Unit) {
                 AsyncImage(model = drink.imageURL, contentDescription = drink.name, contentScale = ContentScale.Crop, modifier = Modifier.fillMaxSize())
             }
             Spacer(modifier = Modifier.width(16.dp))
-            Text(text = drink.name ?: "Inconnu", color = AppColors.PrimaryText, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            Text(text = drink.name ?: "Unknown", color = AppColors.PrimaryText, fontSize = 20.sp, fontWeight = FontWeight.Bold)
         }
     }
 }

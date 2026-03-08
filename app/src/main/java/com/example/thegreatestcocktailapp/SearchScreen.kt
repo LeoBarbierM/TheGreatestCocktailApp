@@ -53,7 +53,7 @@ fun SearchScreen() {
             value = searchQuery,
             onValueChange = { searchQuery = it },
             modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(20.dp)),
-            placeholder = { Text("Rechercher un cocktail...", color = AppColors.SecondaryText) },
+            placeholder = { Text("Search for a cocktail...", color = AppColors.SecondaryText) },
             leadingIcon = { Icon(Icons.Default.Search, contentDescription = null, tint = AppColors.PrimaryText) },
             trailingIcon = {
                 if (searchQuery.isNotEmpty()) {
@@ -79,7 +79,7 @@ fun SearchScreen() {
             }
         } else if (searchQuery.length >= 3 && searchResults.isEmpty()) {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text("Aucun résultat trouvé", color = AppColors.PrimaryText)
+                Text("No results found", color = AppColors.PrimaryText)
             }
         } else {
             LazyVerticalGrid(

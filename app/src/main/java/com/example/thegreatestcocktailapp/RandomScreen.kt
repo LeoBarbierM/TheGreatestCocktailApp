@@ -15,7 +15,7 @@ import com.example.thegreatestcocktailapp.network.NetworkManager
 import com.example.thegreatestcocktailapp.ui.theme.AppColors
 
 @Composable
-fun ALaUneScreen() {
+fun RandomScreen() {
     var randomCocktail by remember { mutableStateOf<DrinkModel?>(null) }
     var isLoading by remember { mutableStateOf(true) }
     var refreshTrigger by remember { mutableIntStateOf(0) }

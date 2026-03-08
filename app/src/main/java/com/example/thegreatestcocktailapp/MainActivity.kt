@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
                 ) { innerPadding ->
                     Box(modifier = Modifier.fillMaxSize().padding(top = innerPadding.calculateTopPadding())) {
                         when (selected) {
-                            0 -> ALaUneScreen()
+                            0 -> RandomScreen()
                             1 -> CategoriesScreen()
                             2 -> FavoritesScreen()
                             3 -> SearchScreen()

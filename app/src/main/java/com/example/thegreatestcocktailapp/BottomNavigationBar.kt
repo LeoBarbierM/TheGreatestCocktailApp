@@ -44,9 +44,9 @@ fun BottomNavigationBar(selectedIndex: Int, onItemSelected: (Int) -> Unit) {
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                NavItem(icon = Icons.Default.AutoAwesome, label = "À la une", isSelected = selectedIndex == 0, onClick = { onItemSelected(0) })
-                NavItem(icon = Icons.Default.FormatListBulleted, label = "Catégories", isSelected = selectedIndex == 1, onClick = { onItemSelected(1) })
-                NavItem(icon = Icons.Default.Favorite, label = "Favoris", isSelected = selectedIndex == 2, onClick = { onItemSelected(2) })
+                NavItem(icon = Icons.Default.AutoAwesome, label = "Random", isSelected = selectedIndex == 0, onClick = { onItemSelected(0) })
+                NavItem(icon = Icons.Default.FormatListBulleted, label = "Categories", isSelected = selectedIndex == 1, onClick = { onItemSelected(1) })
+                NavItem(icon = Icons.Default.Favorite, label = "Favorites", isSelected = selectedIndex == 2, onClick = { onItemSelected(2) })
             }
 
             Spacer(modifier = Modifier.width(12.dp))
@@ -60,7 +60,7 @@ fun BottomNavigationBar(selectedIndex: Int, onItemSelected: (Int) -> Unit) {
                     .clickable { onItemSelected(3) },
                 contentAlignment = Alignment.Center
             ) {
-                Icon(Icons.Default.Search, contentDescription = "Recherche", tint = AppColors.NavBarContent, modifier = Modifier.size(28.dp))
+                Icon(Icons.Default.Search, contentDescription = "Search", tint = AppColors.NavBarContent, modifier = Modifier.size(28.dp))
             }
         }
     }

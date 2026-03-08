@@ -83,7 +83,7 @@ fun DetailCocktailScreen(
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     if (showBackButton) {
                         IconButton(onClick = onBackClick) {
-                            Icon(Icons.Default.ArrowBack, "Retour", tint = AppColors.PrimaryText)
+                            Icon(Icons.Default.ArrowBack, "Back", tint = AppColors.PrimaryText)
                         }
                         Spacer(modifier = Modifier.width(4.dp))
                     }
@@ -98,7 +98,7 @@ fun DetailCocktailScreen(
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     if (onRefresh != null) {
                         IconButton(onClick = { onRefresh() }) {
-                            Icon(Icons.Default.Refresh, "Rafraîchir", tint = AppColors.PrimaryText)
+                            Icon(Icons.Default.Refresh, "Refresh", tint = AppColors.PrimaryText)
                         }
                     }
                     IconButton(onClick = {
@@ -106,13 +106,13 @@ fun DetailCocktailScreen(
                         isFavorite = isAdded
                         Toast.makeText(
                             context,
-                            if (isAdded) "❤️ Ajouté aux favoris" else "💔 Retiré des favoris",
+                            if (isAdded) "❤️ Added to favorites" else "💔 Removed from favorites",
                             Toast.LENGTH_SHORT
                         ).show()
                     }) {
                         Icon(
                             if (isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
-                            "Favoris",
+                            "Favorites",
                             tint = AppColors.PrimaryText
                         )
                     }
@@ -199,13 +199,13 @@ fun DetailCocktailScreen(
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Icon(
                                 Icons.Default.FormatListBulleted,
-                                contentDescription = "Ingrédients",
+                                contentDescription = "Ingredients",
                                 tint = AppColors.PrimaryText,
                                 modifier = Modifier.size(24.dp)
                             )
                             Spacer(Modifier.width(8.dp))
                             Text(
-                                "Ingrédients",
+                                "Ingredients",
                                 color = AppColors.PrimaryText,
                                 fontSize = 20.sp,
                                 fontWeight = FontWeight.Bold
@@ -245,13 +245,13 @@ fun DetailCocktailScreen(
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Icon(
                                 Icons.Default.Description,
-                                contentDescription = "Recette",
+                                contentDescription = "Recipe",
                                 tint = AppColors.PrimaryText,
                                 modifier = Modifier.size(24.dp)
                             )
                             Spacer(Modifier.width(8.dp))
                             Text(
-                                "Recette",
+                                "Recipe",
                                 color = AppColors.PrimaryText,
                                 fontSize = 20.sp,
                                 fontWeight = FontWeight.Bold

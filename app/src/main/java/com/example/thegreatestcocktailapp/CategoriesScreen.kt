@@ -50,9 +50,9 @@ fun CategoriesScreen(modifier: Modifier = Modifier) {
 
     Column(modifier = modifier.fillMaxSize()) {
         Row(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-            Text(text = "Catégories", color = AppColors.PrimaryText, fontSize = 28.sp, fontWeight = FontWeight.Bold)
+            Text(text = "Categories", color = AppColors.PrimaryText, fontSize = 28.sp, fontWeight = FontWeight.Bold)
             IconButton(onClick = { AppPreferences.toggleGridMode() }) {
-                Icon(if (isGridMode) Icons.Default.ViewList else Icons.Default.GridView, "Changer", tint = AppColors.PrimaryText)
+                Icon(if (isGridMode) Icons.Default.ViewList else Icons.Default.GridView, "Change view", tint = AppColors.PrimaryText)
             }
         }
 
