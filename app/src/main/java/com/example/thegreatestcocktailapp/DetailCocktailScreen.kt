@@ -63,28 +63,26 @@ fun DetailCocktailScreen(
         ) else null
     )
 
-    // Le nom de la catégorie à afficher en haut
     val displayTitle = categoryName ?: cocktail.category ?: "Cocktail"
 
     Surface(modifier = Modifier.fillMaxSize(), color = AppColors.Background) {
-        // COLONNE PRINCIPALE FIXE
+
         Column(modifier = Modifier.fillMaxSize()) {
 
-            // --- 1. LA BARRE DU HAUT FIXE (Exactement comme CategoriesScreen et FavoritesScreen) ---
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(
                         horizontal = 16.dp,
                         vertical = 8.dp
-                    ), // Même padding que tes autres écrans !
+                    ),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Gauche : Bouton retour (si besoin) + Titre
+
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     if (showBackButton) {
-                        IconButton(onClick = onBackClick) { // 🌟 C'est beaucoup plus propre !
+                        IconButton(onClick = onBackClick) {
                             Icon(Icons.Default.ArrowBack, "Retour", tint = AppColors.PrimaryText)
                         }
                         Spacer(modifier = Modifier.width(4.dp))
@@ -92,13 +90,11 @@ fun DetailCocktailScreen(
                     Text(
                         text = displayTitle,
                         color = AppColors.PrimaryText,
-                        // On met la taille à 28.sp si c'est la page d'accueil (comme Catégories), sinon 24.sp
                         fontSize = if (showBackButton) 24.sp else 28.sp,
                         fontWeight = FontWeight.Bold
                     )
                 }
 
-                // Droite : Boutons d'action
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     if (onRefresh != null) {
                         IconButton(onClick = { onRefresh() }) {
@@ -110,7 +106,7 @@ fun DetailCocktailScreen(
                         isFavorite = isAdded
                         Toast.makeText(
                             context,
-                            if (isAdded) "❤️ Ajouté" else "💔 Retiré",
+                            if (isAdded) "❤️ Ajouté aux favoris" else "💔 Retiré des favoris",
                             Toast.LENGTH_SHORT
                         ).show()
                     }) {
@@ -123,7 +119,6 @@ fun DetailCocktailScreen(
                 }
             }
 
-            // --- 2. LE CONTENU QUI DÉFILE EN DESSOUS ---
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -240,7 +235,6 @@ fun DetailCocktailScreen(
                 }
 
                 Card(
-                    // Marge du bas augmentée pour ne pas être caché par la barre de navigation
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(16.dp)

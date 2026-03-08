@@ -20,7 +20,6 @@ fun ALaUneScreen() {
     var isLoading by remember { mutableStateOf(true) }
     var refreshTrigger by remember { mutableIntStateOf(0) }
 
-    // Appel réseau avec Retrofit (spécifique à ton ancien projet)
     LaunchedEffect(refreshTrigger) {
         isLoading = true
         NetworkManager.api.getRandomCocktail().enqueue(object : Callback<Drinks> {

@@ -143,7 +143,7 @@ fun DrinksListContent(categoryName: String) {
                     val onDrinkClick = {
                         val intent = Intent(context, DetailActivity::class.java)
                         intent.putExtra("EXTRA_DRINK_ID", drink.id)
-                        intent.putExtra("EXTRA_CATEGORY_NAME", categoryName) // 🌟 Envoi de la catégorie
+                        intent.putExtra("EXTRA_CATEGORY_NAME", categoryName)
                         context.startActivity(intent)
                     }
 

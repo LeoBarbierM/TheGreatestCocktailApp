@@ -24,7 +24,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             TheGreatestCocktailAppTheme {
 
-                // 🌟 CODE MAGIQUE : STATUS BAR & NAVIGATION BAR 🌟
                 val view = LocalView.current
                 val darkTheme = isSystemInDarkTheme()
                 val bgColor = AppColors.Background.toArgb()

@@ -34,7 +34,7 @@ fun BottomNavigationBar(selectedIndex: Int, onItemSelected: (Int) -> Unit) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            // --- LA PILULE GAUCHE ---
+
             Row(
                 modifier = Modifier
                     .weight(1f)
@@ -51,12 +51,11 @@ fun BottomNavigationBar(selectedIndex: Int, onItemSelected: (Int) -> Unit) {
 
             Spacer(modifier = Modifier.width(12.dp))
 
-            // --- LE BOUTON RECHERCHE ROND ---
+
             Box(
                 modifier = Modifier
                     .size(72.dp)
                     .clip(CircleShape)
-                    // Un peu de transparence quand sélectionné pour faire "bouton appuyé"
                     .background(if (selectedIndex == 3) AppColors.NavBarBackground.copy(alpha = 0.6f) else AppColors.NavBarBackground)
                     .clickable { onItemSelected(3) },
                 contentAlignment = Alignment.Center
@@ -69,9 +68,7 @@ fun BottomNavigationBar(selectedIndex: Int, onItemSelected: (Int) -> Unit) {
 
 @Composable
 fun RowScope.NavItem(icon: ImageVector, label: String, isSelected: Boolean, onClick: () -> Unit) {
-    // Fond du bouton : transparent avec un peu de contraste si sélectionné
     val backgroundColor = if (isSelected) AppColors.NavBarContent.copy(alpha = 0.15f) else Color.Transparent
-    // Couleur de l'icône/texte : utilise NavBarContent pour s'adapter au mode clair/sombre
     val contentColor = if (isSelected) AppColors.NavBarContent else AppColors.NavBarContent.copy(alpha = 0.5f)
 
     Column(

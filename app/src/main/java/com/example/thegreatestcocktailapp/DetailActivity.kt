@@ -28,7 +28,7 @@ class DetailActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val drinkId = intent.getStringExtra("EXTRA_DRINK_ID")
-        val categoryName = intent.getStringExtra("EXTRA_CATEGORY_NAME") // 🌟 Réception de la catégorie
+        val categoryName = intent.getStringExtra("EXTRA_CATEGORY_NAME")
 
         setContent {
             TheGreatestCocktailAppTheme {
@@ -91,7 +91,6 @@ class DetailActivity : ComponentActivity() {
                                             CircularProgressIndicator(color = AppColors.PrimaryText)
                                         }
                                     } else {
-                                        // 🌟 Transmission de la catégorie à l'écran
                                         cocktailDetails?.let { DetailCocktailScreen(cocktail = it, showBackButton = true, categoryName = categoryName, onBackClick = { finish() }) }
                                     }
                                 } else CategoriesScreen()
